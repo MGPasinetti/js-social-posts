@@ -123,7 +123,7 @@ function renderPost(objPost) {
                                     </a>
                                 </div>
                                 <div class="likes__counter">
-                                    Piace a <b id="like-counter-${objPost.id}" class="js-likes-counter">${objPost.likes}</b> persone
+                                    Piace a <b id="like-counter-1" class="js-likes-counter">${objPost.likes}</b> persone
                                 </div>
                             </div> 
                         </div> 
@@ -134,8 +134,10 @@ function renderPost(objPost) {
     MILESTONE 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
     Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
     */
-   
+
     const btnLike = elePost.querySelector(`.like-button`);
+    const likeCounter = elePost.querySelector(`.js-likes-counter`);
+
     btnLike.addEventListener(`click`, addLike);
 
     // fai funzione al click sul bottone
@@ -144,7 +146,7 @@ function renderPost(objPost) {
         btnLike.classList.add(`like-button--liked`);
 
         // incremento il counter dei likes
-
+        likeCounter.innerHTML = `${parseInt(80 + 1)}`;
     };
 };
 

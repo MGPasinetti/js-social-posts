@@ -151,6 +151,9 @@ function renderPost(objPost) {
 
         // salvo in un nuovo array gli id dei post piaciuti
         arrLikedPosts.push(objPost.id)
+
+        console.log(arrLikedPosts);
+
     };
 
     // formatto le date in formato italiano (gg/mm/aaaa)
@@ -167,10 +170,3 @@ function renderPost(objPost) {
 
 };
 
-console.log(arrLikedPosts);
-
-
-
-
-
-// 

@@ -146,7 +146,7 @@ function renderPost(objPost) {
         btnLike.classList.add(`like-button--liked`);
 
         // incremento il counter dei likes
-        likeCounter.innerHTML = `${parseInt(80 + 1)}`;
+        likeCounter.innerHTML = `${parseInt(objPost.likes + 1)}`;
     };
 };
 

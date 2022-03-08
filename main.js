@@ -152,6 +152,19 @@ function renderPost(objPost) {
         // salvo in un nuovo array gli id dei post piaciuti
         arrLikedPosts.push(objPost.id)
     };
+
+    // formatto le date in formato italiano (gg/mm/aaaa)
+    // const usaDate = elePost.querySelector(`.post-meta__time`).textContent;
+
+    // const options = {year: 'numeric', month: 'numeric', day: 'numeric' };  
+    // const itDate = usaDate.toLocaleDateString('it-IT', options);
+
+    // console.log(itDate);
+
+    // function formatDate() {
+        
+    // };
+
 };
 
 console.log(arrLikedPosts);
@@ -160,3 +173,4 @@ console.log(arrLikedPosts);
 
 
 
+// 

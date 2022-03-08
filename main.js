@@ -85,7 +85,7 @@ const arrPosts = [
     }
 ];
 
-const eleContainer = document.querySelector(`.post-list`);
+const eleContainer = document.querySelector(`.posts-list`);
 
 // creo un post per ciascun oggetto presente nell'array
 for (let i = 0; i < arrPosts.length; i++) {
@@ -100,31 +100,35 @@ function renderPost(objPost) {
                         <div class="post__header">
                             <div class="post-meta">                    
                                 <div class="post-meta__icon">
-                                    <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                                    <img class="profile-pic" src="${objPost.author.image}" alt="${objPost.author.name}">                    
                                 </div>
                                 <div class="post-meta__data">
-                                    <div class="post-meta__author">Phil Mangione</div>
-                                    <div class="post-meta__time">4 mesi fa</div>
+                                    <div class="post-meta__author">${objPost.author.name}</div>
+                                    <div class="post-meta__time">${objPost.created}</div>
                                 </div>                    
                             </div>
                         </div>
-                        <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+                        <div class="post__text">${objPost.content}</div>
                         <div class="post__image">
-                        <img src="https://unsplash.it/600/300?image=171" alt="">
+                            <img src="${objPost.media}" alt="">
                         </div>
                         <div class="post__footer">
                             <div class="likes js-likes">
                                 <div class="likes__cta">
-                                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                                    <a class="like-button  js-like-button" href="#" data-postid="${objPost.id}">
                                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                         <span class="like-button__label">Mi Piace</span>
                                     </a>
                                 </div>
                                 <div class="likes__counter">
-                                    Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                                    Piace a <b id="like-counter-1" class="js-likes-counter">${objPost.likes}</b> persone
                                 </div>
                             </div> 
                         </div> 
     `;
-}
+    
+    eleContainer.append(elePost);
+};
+
+
 

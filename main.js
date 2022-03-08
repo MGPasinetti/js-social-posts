@@ -93,7 +93,7 @@ const eleContainer = document.querySelector(`.posts-list`);
 // creo un post per ciascun oggetto presente nell'array
 for (let i = 0; i < arrPosts.length; i++) {
     renderPost(arrPosts[i]);
-}
+};
 
 function renderPost(objPost) {
     const elePost = document.createElement(`div`);
@@ -117,35 +117,38 @@ function renderPost(objPost) {
                         <div class="post__footer">
                             <div class="likes js-likes">
                                 <div class="likes__cta">
-                                    <a class="like-button  js-like-button" href="#" data-postid="${objPost.id}">
+                                    <a class="like-button  js-like-button" href="#!" data-postid="${objPost.id}">
                                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                         <span class="like-button__label">Mi Piace</span>
                                     </a>
                                 </div>
                                 <div class="likes__counter">
-                                    Piace a <b id="like-counter-1" class="js-likes-counter">${objPost.likes}</b> persone
+                                    Piace a <b id="like-counter-${objPost.id}" class="js-likes-counter">${objPost.likes}</b> persone
                                 </div>
                             </div> 
                         </div> 
     `;
-    
+
     eleContainer.append(elePost);
+    /*
+    MILESTONE 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+    Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+    */
+   
+    const btnLike = elePost.querySelector(`.like-button`);
+    btnLike.addEventListener(`click`, addLike);
+
+    // fai funzione al click sul bottone
+    function addLike() {
+        // cambio colore al bottone
+        btnLike.classList.add(`like-button--liked`);
+
+        // incremento il counter dei likes
+
+    };
 };
 
-/*
-MILESTONE 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
-*/
 
-const btnLike = document.querySelector(`.like-button`)
-
-// fai funzione al click sul bottone
-btnLike.addEventListener(`click`, addLike);
-
-function addLike(event) {
-    // cambio colore al bottone e incremento il counter dei likes
-    btnLike.classList.add(`like-button--liked`);
-}
 
 
 

@@ -89,22 +89,12 @@ const arrPosts = [
 ];
 
 const eleContainer = document.querySelector(`.posts-list`);
-const btnLike = document.querySelector(`.like-button`)
 
 // creo un post per ciascun oggetto presente nell'array
 for (let i = 0; i < arrPosts.length; i++) {
     renderPost(arrPosts[i]);
 }
 
-/*
-MILESTONE 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
-*/
-
-// fai funzione al click sul bottone
-btnLike.addEventListener(`click`, addLike);
-
-// FUNCTIONS
 function renderPost(objPost) {
     const elePost = document.createElement(`div`);
     elePost.classList.add(`post`);
@@ -142,10 +132,19 @@ function renderPost(objPost) {
     eleContainer.append(elePost);
 };
 
+/*
+MILESTONE 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+*/
+
+const btnLike = document.querySelector(`.like-button`)
+
+// fai funzione al click sul bottone
+btnLike.addEventListener(`click`, addLike);
+
 function addLike(event) {
     // cambio colore al bottone e incremento il counter dei likes
-    
-
+    btnLike.classList.add(`like-button--liked`);
 }
 
 

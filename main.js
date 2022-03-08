@@ -89,6 +89,7 @@ const arrPosts = [
 ];
 
 const eleContainer = document.querySelector(`.posts-list`);
+const arrLikedPosts = [];
 
 // creo un post per ciascun oggetto presente nell'array
 for (let i = 0; i < arrPosts.length; i++) {
@@ -138,17 +139,22 @@ function renderPost(objPost) {
     const btnLike = elePost.querySelector(`.like-button`);
     const likeCounter = elePost.querySelector(`.js-likes-counter`);
 
-    btnLike.addEventListener(`click`, addLike);
+    btnLike.addEventListener(`click`, likedPost);
 
     // fai funzione al click sul bottone
-    function addLike() {
+    function likedPost() {
         // cambio colore al bottone
         btnLike.classList.add(`like-button--liked`);
 
         // incremento il counter dei likes
         likeCounter.innerHTML = `${parseInt(objPost.likes + 1)}`;
+
+        // salvo in un nuovo array gli id dei post piaciuti
+        arrLikedPosts.push(objPost.id)
     };
 };
+
+console.log(arrLikedPosts);
 
 
 

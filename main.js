@@ -150,9 +150,9 @@ function renderPost(objPost) {
         likeCounter.innerHTML = `${parseInt(objPost.likes + 1)}`;
 
         // salvo in un nuovo array gli id dei post piaciuti
-        arrLikedPosts.push(objPost.id)
-
-        console.log(arrLikedPosts);
+        while (arrLikedPosts.includes(objPost.id) == false) {
+            arrLikedPosts.push(objPost.id);
+        };
 
     };
 
@@ -170,3 +170,4 @@ function renderPost(objPost) {
 
 };
 
+console.log(arrLikedPosts);
